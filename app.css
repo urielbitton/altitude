@@ -1,0 +1,2854 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: Montserrat;
+    background: #fafafa;
+    height: 100vh;
+    width: 100vw;
+}
+ 
+:root {
+    --color: #5526ff;
+    --light: #6338ff;    
+    --dark: #002033;
+    --darklight: #09324a;
+    --grad: linear-gradient(150deg, #2e37ff 0%, #33dfff 100%);
+    --shadow: 0 1px  3px rgba(0,0,0,0.1);
+    --colorshadow: 0px 10px 42px -20px rgba(85,38,255,1);
+    --shadowhover: 0px 10px 42px -15px rgba(85,38,255,1);
+    --wideshadow : 0px 10px 90px -22px rgba(0,0,0,0.46);
+} 
+ 
+.clear {
+    clear: both;
+}
+
+h1,h2,h3,h4,h5,h6,i,p,li,button,a,span,small,img,section {
+    position: relative;
+}
+i {
+    transition: all 0.3s;
+}
+img {
+    object-fit: cover;
+}
+hr {
+    border: none;
+}
+button {
+    outline: none;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+section h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+section h6 {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+a {
+    text-decoration: none;
+}
+p {
+    line-height: 1.8;
+}
+em {
+    font-style: normal;
+}
+input, textarea {
+    outline: none;
+}
+::selection {
+    background: var(--color);
+    color: white;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+} 
+::-webkit-scrollbar-track {
+    background: #eee; 
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color);
+    border-radius: 50px;
+}
+.spacer {
+    height: 50px;
+}
+.spacers {
+    height: 20px;
+}
+.spacerl {
+    height: 100px;
+}
+.nspace {
+    height: 30px;
+} 
+.close {
+    position: absolute;
+    padding: 5px;
+    font-style: normal;
+    font-weight: 900;
+    transform: scale(1);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s;
+}
+.close::before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: rotate(-47deg);
+    content: '___';
+}
+.close::after {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    content: '___';
+    transform: rotate(47deg);
+}
+
+
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 80px;
+    background: var(--dark);
+    padding: 20px 10px;
+    box-sizing: border-box;
+    text-align: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    z-index: 900;
+    float: left;
+}
+.sidebar .logo {
+    width: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.sidebar > i {
+    color: #eee;
+    font-size: 20px;
+    display: block;
+    margin: 13px auto;
+    cursor: pointer;
+    padding: 0px;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+.sidebar > i:hover {
+    background: var(--darklight);
+}
+.sidebar hr {
+    position: relative;
+    margin-top: 20px;
+    width: 90%;
+    height: 1px;
+    background: #fff;
+    opacity: 0.2;
+} 
+.sidebar button {
+    position: relative;
+    left: -27px;
+    padding: 15px 20px;
+    margin: 40px 0; 
+    border-radius: 10px;
+    background: var(--color);
+    font-size: 16px;
+    color: #fff;
+    white-space: nowrap;
+    transform: rotate(-90deg);
+}
+.sidebar button:hover {
+    background: var(--light);
+}
+ 
+.sidebar button i {
+    color: #fff;
+    margin-right: 10px;
+}
+.sidebar i small {
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    font-style: normal;
+    font-family: Montserrat;
+    font-size: 12px;
+    color: #fff;
+    background: var(--darklight);
+    padding: 0px 10px;
+    padding-left: 15px;
+    border-radius: 10px;
+    margin: 0;
+    clip-path: polygon(7% 0, 100% 0, 100% 20%, 100% 100%, 7% 100%, 7% 70%, 0 50%, 7% 30%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+.sidebar i:hover small {
+    transition-delay: 0.8s;
+    left: 40px;
+    visibility: visible;
+    opacity: 1;
+}
+.projectsnavcont {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.projectsnav {
+    position: fixed;
+    margin-left: 80px;
+    min-height: 100vh;
+    width: 250px;
+    background: #f9f9f9;
+    border-right: 1px solid #eee;
+    z-index: 100;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    box-shadow: -10px 1px 3px rgba(0,0,0,0.1);
+} 
+.projectsnav:hover {
+    z-index: 200;
+}
+.projectsnav h4 {
+    color: #333;
+    font-size: 18px;
+}
+.projectsnav h4 i {
+    float: right;
+    color: #555;
+    padding: 5px;
+    cursor: pointer;
+}
+.projectsnav h4 i:hover {
+    color: var(--color);
+}
+.searchdiv {
+    position: relative;
+    width: 100%;
+    height: 60px;
+} 
+.searchdiv hr {
+    position: relative;
+    width: 0;
+    margin-left: 0;
+    height: 1.5px;
+    background: var(--color);
+    transition: all 0.3s;
+    margin-top: 0;
+}
+.projectsnav input {
+    background: none;
+    border: none;
+    border-width: 0px;
+    padding: 15px 20px;
+    padding-bottom: 10px;
+    float: left;
+    padding-left: 24px;
+    color: #555;
+    font-weight: 400;
+    transition: all 0.3s;
+}
+.projectsnav input:focus + hr {
+    width: 90%;
+}
+
+.projectsnav input::placeholder {
+    color: #777;
+    font-weight: 400;
+    font-size: 15px;
+}
+.searchdiv i {
+    position: absolute;
+    top: 14px;
+    left: 0px;
+    color: #aaa;
+}
+.searchdiv small {
+    position: absolute;
+    left: 40px;
+    top: 12px;
+    color: #aaa;
+}
+.projects,.prototypes {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+}
+.projects .indivproj, .prototypes .indivproto {
+    position: relative;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px;
+    margin: 10px auto;
+    color: #555;
+    background: rgba(221, 231, 240,0.45);
+    cursor: pointer;
+    border-radius: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    transition: all 0.3s;
+}
+.projects .indivproj:hover, .prototypes .indivproto:hover {
+    background: rgba(221, 231, 240,0.65);
+}
+.projects .indivproj:hover i, .prototypes .indivproto:hover i {
+    opacity: 1;
+} 
+.projects .indivproj > i, .prototypes .indivproto > i {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    opacity: 0;
+    padding: 5px;
+    color: #555;
+}
+.projects .indivproj span, .prototypes .indivproto span {
+    display: block;
+    width: 80%;
+    font-weight: 600;
+    font-size:14px;
+} 
+
+.toolbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 70px;
+    width: calc(100% - 330px);
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    padding: 0 40px;
+    z-index: 990;
+} 
+.toolbar h6 {
+    margin: auto;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    float: left;
+}
+.profilediv {
+    position: relative;
+    float: right;
+    top: 8px;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+} 
+.profilediv img {
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+.profilediv span {
+    margin-left: 10px;
+    float: left;
+    top: 3px;
+    font-weight: 600;
+    color: #777;
+    font-size: 15px;
+}
+.profilediv span i {
+    margin-left: 10px;
+    top: 2.5px;
+    font-size: 20px;
+    color: #aaa;
+}
+.profdropdown {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    padding: 30px;
+    background: white;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    min-width: 250px;
+    z-index: 999;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s;
+}
+.profpicdiv {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 100%;
+    margin-bottom: 20px;
+    border: 2px solid #fff;
+}
+.profpicdiv label {
+    cursor: pointer;
+}
+.profdropdown img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.profdropdown .fa-camera {
+    position: absolute;
+    color: #555;
+    padding: 5px;
+    font-size: 20px;
+    top: 50px;
+    right: 0px;
+    background: #f1f1f1;
+    border-radius: 100%;
+}
+.profdropdown h4 {
+    margin-top: 10px;
+    color: #555;
+    font-size: 18px;
+    font-weight: 500;
+}
+.profdropdown h5 {
+    color: #333;
+    text-align: left;
+    margin: 10px auto;
+    font-weight: 500;
+}
+.profdropdown h5 span {
+    color: #aaa;
+    margin-left: 10px;
+    font-weight: 500;
+    float: right;
+}
+.profdropdown hr {
+    height: 1px;
+    width: 80%;
+    background: #eee;
+    margin-top: 20px;
+}
+.profdropdown small {
+    color: var(--color);
+    display: block;
+    margin-top: 20px;
+    padding: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.profpicuploader input {
+    display: none;
+}
+  
+
+.home {
+    position: relative;
+    width: calc(100% - 330px);
+    height: 92%;
+    background: #fafafa;
+    margin-top: 70px;
+    float: right;
+    padding: 10px 30px;
+    padding-bottom: 70px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.home::-webkit-scrollbar {
+    display: block;
+} 
+.home::-webkit-scrollbar-track:horizontal {
+    display: none;
+}
+.menu {
+    position: relative;
+    float: left;
+    top: 5px;
+    height: 65px;
+    overflow: hidden;
+}
+.menu h4 {
+    color: #555;
+    margin: auto 15px;
+    font-size: 14px;
+    padding: 20px 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+.menu h4 hr {
+    height: 3px;
+    background: var(--color);
+    width: 100%;
+    margin-top: 23.5px;
+    opacity: 0;
+    transition: all 0.3s;
+} 
+.activemenu, .activemenu hr {
+    color: var(--color)!important;
+    opacity: 1!important;
+}
+
+
+
+ 
+/*New Project */
+
+.appbox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.newboxcont, .compcentercont {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(30, 57, 74,0.7);
+}
+.newboxclose, .compclose {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+} 
+.newbox, .compcenter {
+    position: absolute;
+    top: 45%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 300px;
+    box-shadow: var(--wideshadow);
+    border-radius: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 40px;
+    z-index: 100;
+    transition: all 0.4s;
+}
+.newbox h2 {
+    font-size: 24px;
+    float: left;
+    color: #555;
+    font-weight: 600;
+    margin: auto;
+} 
+
+.newbox .close {
+    right: 20px;
+    top: 20px;
+}
+.newbox label {
+    color: #aaa;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 20px;
+    float: left;
+}
+.newbox input {
+    margin-top: 30px;
+}
+.newbox input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 17px;
+    color: #555;
+    box-sizing: border-box;
+}
+.addteambox .newbox {
+    height: 340px; 
+}
+.newbox span {
+    display: block;
+    margin: 20px auto;
+}
+.newbox select {
+    width: 200px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 17px;
+    outline: none;
+    color: #aaa;
+}
+.newbox select option {
+    color: #333;
+}
+.newbox .projcolor {
+    visibility: hidden;
+}
+.projcolorcont {
+    position: relative;
+    float: left;
+    width: 25px;
+    height: 25px;
+    background: var(--color);
+    border-radius: 100%;
+    margin-top: 13px;
+    margin-right: 10px;
+    cursor: pointer;
+} 
+
+.newbox .info {
+    display: block;
+    font-size: 13px;
+    margin-top: 10px;
+    padding: 5px;
+    color: #777;
+}
+.newbox input::placeholder {
+    color: #ccc;
+    font-weight: 100;
+}
+.newbox input:focus, .newbox select:focus {
+    border-color: var(--color);
+}
+.innerbox select {
+    width: 300px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    color: #555;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+.innerright {
+    padding: 20px;
+    box-sizing: border-box;
+}
+.innerright label {
+    position: relative;
+    font-weight: 500;
+    top: 10px;
+    cursor: auto;
+}
+.newbox input[type="color"] {
+    height: 55px;
+    cursor: pointer;
+} 
+.newbox input[type="checkbox"] {
+    margin-left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.newbox button {
+    position: absolute;
+    padding: 10px 20px;
+    border-radius: 40px;
+    background: var(--color);
+    color: #fff;
+    bottom: 20px;
+    right: 40px;
+    font-size: 16px;
+}
+.newbox button:hover {
+    box-shadow: var(--shadowhover);
+}
+.newbox .cancel {
+    position: absolute;
+    bottom: 20px;
+    right: 200px;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+.newbox button i {
+    margin-right: 7px;
+}
+.teamdiv {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: 320px;
+    overflow-y: scroll;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.teamdiv p {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #555;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.teamdiv p:hover {
+    background: #f5f5f5;
+}
+.teamdiv p i {
+    float: right;
+    top: -3px;
+    padding: 10px;
+    background: #eee;
+    border-radius: 100%;
+    color: #000;
+}
+.teamdiv p img {
+    top: -2px;
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+/* Loader CSS */
+.lds-ripple{display:inline-block;position:relative;width:80px;height:80px}.lds-ripple div{position:absolute;border:4px solid var(--color);opacity:1;border-radius:50%;animation:lds-ripple 1s cubic-bezier(0,.2,.8,1) infinite}.lds-ripple div:nth-child(2){animation-delay:-.5s}@keyframes lds-ripple{0%{top:36px;left:36px;width:0;height:0;opacity:1}100%{top:0;left:0;width:72px;height:72px;opacity:0}}
+
+.loader {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background: rgba(255,255,255,0.7);
+    display: none;
+}
+.lds-ripple {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.successproj {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50%;
+    height: 300px;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+.successproj h3 {
+    text-align: center;
+    color: #777;
+    margin-top: 30px;
+}
+.successproj h3 i {
+    color: #62ff00;
+    display: block;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.successproj h6 {
+    margin-top: 0px;
+    color: #aaa;
+}
+.successproj small {
+    margin: 20px;
+    transition: all 0.3s;
+    padding: 7px 12px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.successproj small:hover {
+    background: var(--color);
+    color: #fff;
+}
+.successproj small i {
+    margin-right: 8px;
+    transition: all 0s;
+}
+.successproj .close {
+    top: 20px;
+    right: 20px;
+}
+ 
+.notifcont {
+    position: fixed;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s;
+}   
+.notif { 
+    position: absolute;
+    top: 0;
+    width: 400px;
+    background: #fff;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-top: 5px solid var(--color);
+    transition: all 0.4s;
+    z-index: 10;
+}
+.notif small {
+    color: var(--color);
+    font-weight: 500;
+}
+.notif p {
+    font-weight: 400;
+    color: #777;
+    font-size: 14px;
+}  
+.notif button {
+    padding: 10px 20px;
+    border-radius: 40px;
+    background: var(--color);
+    color: #fff;
+    margin: auto 10px;
+}
+.notif button:hover {
+    background: var(--light);
+}
+
+
+/* Project Template */
+.projtemplate {
+    display: none;
+    min-height: 100vh;
+}
+.projtemplate table {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    background: #fafafa;
+    border-radius: 10px;
+    display: table;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    border-radius: 10px;
+    transition: all 0.3s;
+    margin-bottom: 100px;
+}
+.projtemplate table tr:first-child td {
+    background: none;
+    border: none;
+    padding: 0;
+}
+.projtemplate table tr {
+    transition: all 0.2s;
+}
+.projtemplate table tr:last-child td {
+    background:none;
+    border: none;
+    padding: 0;
+}
+.projtemplate table tr:last-child td i { /*The additembtn */
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 40px;
+    background: var(--color);
+    color: #fff;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 90;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.projtemplate table th {
+    color: var(--dark);
+    text-align: left;
+    padding: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}  
+.projtemplate table th:hover {
+    background: #f5f5f5;
+}
+.projtemplate table th:hover i {
+    opacity: 1;
+}
+.thdrop {
+    float: right;
+    font-size: 16px;
+    top: -2px;
+    opacity: 0;
+    padding: 5px;
+    color: var(--color);
+} 
+.projtemplate table td {
+    padding: 5px 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+    color: #555;
+    background: #f5f5f5;
+    border: 1px solid #fff;
+    max-width: 400px;
+    word-break: break-all;
+}
+.projtemplate table td span {
+    outline: none;
+    display: block;
+    padding: 10px 0px;
+}
+.projtemplate table td span:focus {
+    outline: none;
+}  
+.projtemplate table td:hover {
+    background: #f1f1f1;
+} 
+.projtemplate table td .fa-pen, .projtemplate table td .fa-check, .projtype .fa-pen,.projtype .fa-check   {
+    position: absolute;
+    color: var(--color);
+    opacity: 0;
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 100%;
+    padding: 5px;
+    font-size: 11px;
+    cursor: pointer;
+    transform: translate(-15px, -7px);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+    z-index: 100;
+} 
+.projtype a:hover i {
+    opacity: 1;
+}
+.projtemplate table td:hover .fa-pen, .projtemplate table td:hover .fa-check, .projtemplate table td:hover .fa-angle-down {
+    opacity: 1;
+}  
+
+.projtemplate table .statustd .fa-angle-down {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    color: var(--color);
+    background: rgba(255,255,255,0.8);
+    border: none;
+    opacity: 0;
+    border-radius: 100%;
+    padding: 4px 7px;
+    font-size: 15px;
+    cursor: pointer;
+    transform: translate(-10px, 1px);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+    z-index: 100;
+} 
+table .statustd .statusdropdown {
+    position: absolute;
+    top: 20px;
+    width: 180px;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    background: #fff;
+    z-index: 100;
+}
+table .statustd em {
+    font-style: normal;
+}
+table .statustd > div {
+    padding: 15px 0;
+} 
+.statusdropdown div {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    height: 25px;
+    margin: 10px auto;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.3s;
+} 
+table .statustd .statusdropdown div:hover {
+    border: 1px solid var(--color);
+}
+table .statustd .statusdropdown small {
+    color: #aaa;
+    font-size: 12px;
+}
+.activestatus {
+    cursor: pointer;
+}
+table tr .teamtd {
+    width: 250px;
+}
+.teamtd i {
+    position: absolute;
+    opacity: 0;
+    color: var(--color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 5px;
+    border-radius: 100%;
+    font-size: 12px;
+    background: rgba(255,255,255,0.6);
+    transform: translate(-15px, -12px);
+    z-index: 100;
+}
+.teamtd:hover i {
+    opacity: 1;
+}   
+.teamtd span img {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 2.5px solid rgba(233, 237, 240,1);
+    top: 3px;
+    margin: auto -5px;
+    left: 10px;
+}
+.teamtd span small {
+    display: none!important;
+}
+.teamtd span {
+    float: left;
+    width: 25px;
+    padding: 0!important;
+}
+.teamtd span em {
+    font-style: normal;
+    font-size: 11px;
+    position: absolute;
+    white-space: nowrap;
+    top: -10px;
+    left: 5px;
+    display: none;
+    transition: all 0.3s;
+    padding: 3px 7px;
+    border-radius: 40px;
+    background: rgba(0,0,0,0.95);
+    color: #fff;
+}   
+.teamtd span img:hover + em {
+    display: block;
+    top: -20px;
+}
+.statustd {
+    padding: 0!important;
+    width: 200px;
+}
+.statustd div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+} 
+.statustd [data-status="0"]{
+    background: none;
+}
+.statustd [data-status="1"]{
+    background: #f2ca00;
+}
+.statustd [data-status="2"]{
+    background: #38d400;
+}
+.statustd [data-status="3"]{
+    background: #0099f2;
+}
+.statustd [data-status="4"]{
+    background: #eb3461;
+}
+.additemtd {
+    width: 250px;
+}
+.additemtd input {
+    position: relative;
+    border: 1px dotted #ccc;
+    height: 45px;
+    background: none;
+    width: 180px;
+    padding: 0 10px;
+    margin-left: 2px;
+    box-sizing: inherit;
+    font-size: 14px;
+    color: #555;
+    margin-right: 10px;
+} 
+.additemtd input::placeholder {
+    color: #aaa;
+}
+.fa-paperclip {
+    cursor: pointer;
+}
+.datetd {
+    width: 200px;
+}
+.datetd input {
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    border: none;
+    background: none;
+}
+.projtemplate table td i {
+    border-radius: 100%;
+    cursor: pointer;
+}
+.projtemplate table td:last-child i {
+    padding: 10px;
+    margin: auto 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    color: #555;
+    cursor: pointer;
+    z-index: 100;
+}
+.projtemplate table td:last-child {
+    background: none;
+}
+.projtemplate table tr:first-child h6 i {
+    position: relative;
+    opacity: 1;
+    color: #333;
+    margin: 0;
+    font-size: 15px;
+    top: auto;
+    transform: translate(0);
+}
+.projtemplate table td small {
+    display: block;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+.projtemplate table .regrow td:last-child {
+    width: 30px;
+    border: none;
+    padding: 0;
+    opacity: 0;
+    transition: all 0.13s;
+}
+.projtemplate table tr:hover td:last-child {
+    opacity: 1;
+}
+.projtemplate table th:last-child {
+    background: none;
+    border: none;
+}
+.projtemplate .projname, .prototemplate .protoname {
+    font-size: 26px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.projlogo, .protologo {
+    position: relative;
+    float: left;
+    width: 20px;
+    height: 20px;
+    top: 6px;
+    margin-bottom: 50px;
+    margin-right: 10px;
+    border-radius: 100%;
+} 
+.projtemplate .projtype, .prototemplate .protoptype {
+    font-size: 15px;
+    color: #aaa;
+    font-weight: 500;
+    margin-top: 5px;
+    width: 60%;
+}
+.projtemplate .projtype span, .prototemplate .protoptype span {
+    font-weight: 500;
+}  
+.projtemplate .projtype a, .prototemplate .protoptype a {
+    color: #aaa;
+    font-weight: 400;
+    font-size: 13px;
+    outline-color:#ccc;
+    padding: 5px 10px;
+    padding-left: 0;
+}
+.projtitles, .prototitles {
+    float: left;
+    width: 100%;
+}
+ 
+.projtitles small, .prototitles small {
+    cursor: pointer;
+    margin: auto 15px 30px 0px;
+    font-size: 13px;
+    color: var(--color);
+    font-weight: 400;
+    padding: 5px 10px;
+    border-radius: 40px;
+    float: left;
+    display: block;
+    border: 1px solid var(--color);
+}
+.projtitles small:hover, .prototitles small:hover {
+    background: var(--color);
+    color: #fff;
+}
+.projtitles i {
+    margin-right: 5px;
+    transition: all 0s;
+} 
+.titlesep {
+    position: relative;
+    clear: both;
+    width: 140%;
+    height: 1px;
+    background: #eee;
+    margin: 20px -40px;
+    margin-bottom: 20px;
+} 
+.addtemplatebtn {
+    position: absolute;
+    margin-top: 40px;
+    top: 0;
+    right: 30px;
+    padding: 15px 30px;
+    border-radius: 40px;
+    background: var(--color);
+    font-size: 16px;
+    color: #fff;
+    box-shadow: var(--colorshadow);
+}
+.addtemplatebtn i {
+    margin-right: 10px;
+}
+.addtemplatebtn:hover {
+    box-shadow: var(--shadowhover);
+}
+ 
+.saveproject, .saveprototype {
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    background: var(--color);
+    font-weight: 500;
+    margin-top: 30px;
+    display: none;
+    visibility: hidden;
+    clear: both;
+}
+.saveproject:hover {
+    background: var(--color);
+    box-shadow: var(--colorshadow);
+}
+.progtd {
+    padding: 0!important;
+    text-align: center;
+    width: 180px;
+    max-width: 180px;
+    min-width: 180px;
+}
+.progbar {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    background: #eee;
+    overflow: hidden;
+}
+.progbar div {
+    position: absolute;
+    background: #84f000;
+    height: 100%;
+    width: 0;
+}
+.progpercent small {
+    width: 110px;
+}
+.progbar:hover i {
+    opacity: 1;
+}
+.progpercent small i {
+    font-size: 10px;
+    position: absolute;
+    top: 10px;
+    z-index: 10;
+    border: none;
+    width: 20px;
+    height: 20px;
+    color: #555;
+    background: none;
+    opacity: 0;
+}  
+.progpercent small i:hover {
+    opacity: 1;
+}
+.plusprog {
+    right: -50px;
+}
+.minprog {
+    left: 10px;
+}
+
+.smallsave, .exporttable {
+    float: left;
+    padding: 10px 20px;
+    margin-top: 50px;
+    margin-right: 20px;
+    background: var(--color);
+    color: #fff;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.smallsave:hover, .exporttable:hover {
+    filter: brightness(110%);
+}
+.smallsave i, .exporttable i {
+    margin-right: 8px;
+}
+
+.smallnotif {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 20px;
+    min-width: 350px;
+    max-width: 500px;
+    background: var(--color);
+    padding: 15px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: var(--shadow);
+    opacity: 0.85;
+}
+.smallnotif i {
+    margin-right: 10px;
+}
+
+ 
+/* My Projects */
+.myprojects {
+    display: none;
+}
+.myprojects .indivproj, .protocont .indivproto {
+    width: 300px;
+    height: 120px;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(221, 231, 240,0.35);
+    display: inline-table;
+    margin: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.myprojects .indivproj:hover, .protocont .indivproto:hover {
+    background: rgba(221, 231, 240,0.55);
+}
+.myprojects .indivproj span, .protocont .indivproto span {
+    font-size: 24px;
+}
+.myprojects .indivproj i {
+    display: none;
+}
+.indivproj h6, .indivproto h6 {
+    margin: 5px auto;
+    font-size: 13px;
+    font-weight: 500;
+}
+.indivproj small, .indivproto small {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+}
+.protocont .indivproto i {
+    display: block;
+    font-size: 24px;
+    margin-top: 10px;
+    color: #555;
+} 
+.protocont .indivproto small {
+    margin-top: 10px;
+}
+.protocont .indivproto .fa-ellipsis-h {
+    display: none;
+}
+
+.prototypes .indivproto,.protocont .indivproto {
+    border-left: 5px solid #000;
+} 
+.team {
+    display: none;
+} 
+
+
+
+/* Dashboard */
+.dashboard {
+    position: relative;
+    width: 100%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+.welcomebox {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    background: rgba(221, 231, 240,0.35);
+    padding: 30px;
+    box-sizing: border-box;
+} 
+.welcomebox h3 {
+    font-size: 17px;
+    color: var(--color);
+    margin: auto;
+}
+.welcomebox .dashdate {
+    margin: 20px auto;
+    font-size: 14px;
+    color: #aaa;
+    display: block;
+}
+.welcomebox .dashdate i {
+    margin-right: 10px;
+}
+.welcomebox p {
+    margin: auto;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+.welcomebox img {
+    position: relative;
+    float: right;
+    width: 300px;
+    top: -50px;
+    margin-bottom: -50px;
+}
+.welcomebox div small {
+    font-size: 14px;
+    margin-right: 10px;
+}
+.welcomebox .dashdiv i {
+    color: var(--color);
+    margin-right: 10px;
+    font-size: 17px;
+}
+.dashdiv {
+    display: inline-block;
+    margin: auto 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.dashdiv:hover {
+    background: var(--color)
+}
+.dashdiv:hover i, .dashdiv:hover small {
+    color: #fff;
+}
+.dashbox {
+    position: relative;
+    margin: 10px 20px;
+    margin-left: 0;
+    float: left;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    background: #fff;
+    min-width: 340px;
+    height: 370px;
+}
+.dashbox h4 {
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+    float: left;
+} 
+.dashbox h6 {
+    color: var(--color);
+    float: right;
+    margin: auto;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 2px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.dashbox h6:hover {
+    color: var(--color);
+}
+.dashbox h6 i {
+    margin-left: 10px;
+    top: 1px;
+    transition: all 0s;
+}
+.dashbox table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+.dashbox table tr:last-child td {
+    border: none;
+}
+.dashbox table td {
+    border-bottom: 2px solid #f5f5f5;
+}
+.dashbox table td {
+    font-size: 12px;
+    color: #777;
+    font-weight: 500;
+    padding: 18px 0;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+.dashbox table td:first-child {
+    font-weight: 600;
+}
+.dashbox table td img {
+    position: relative;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    float: left;
+}
+.dashbox table td span {
+    color: #bbb;
+    font-weight: 600;
+    font-size: 11px;
+    margin-left: 5px;
+} 
+.dashboxlarge table td span {
+    top: 3px;
+    color: #777;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.dashbox .progbar {
+    width: 80px;
+    height: 3px;
+    border: none;
+    background: #dde7f0;
+}
+.dashbox .progbar div {
+    background: var(--color);
+}
+   
+.dashboxsmall {
+    min-width: 240px;
+    max-width: 240px;
+    min-height: 100px;
+    width: 240px;
+    height: 100px;
+    margin: 15px;
+    margin-left: 0;
+    padding: 20px;
+}
+.dashboxsmall h1 {
+    font-size: 30px;
+    color: #555;
+    margin: auto;
+}
+.dashboxsmall h5 {
+    margin: auto;
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+.dashboxsmall img {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+}
+.dashboxlarge {
+    min-width: 460px;
+}
+.dashboxlarge td {
+    padding: 13px 0!important;
+}
+.dashbox table th {
+    font-size: 12px;
+    color: rgba(33, 70, 92,0.4);
+    text-align: left;
+}
+.videotut {
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    height: 50px;
+    z-index: 900;
+}
+.videotut div {
+    position: relative;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 0;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+.videotut div:hover {
+    transform: scale(1.1);
+}
+.videotut div i {
+    position: absolute;
+    color: #fff;
+    top: 12px;
+    left: 15px;
+}
+.videotut div .fa-play {
+    opacity: 0;
+}
+.videotut div .fa-info {
+    left: 17px;
+}
+.videotut div:hover .fa-play {
+    opacity: 1;
+}
+.videotut div:hover .fa-info {
+    opacity: 0;
+}
+.vid1 {
+    background: #9d82ff;
+}
+.vid2 {
+    background: #7f5cff;
+}
+.vid3 {
+    background: var(--color);
+}
+.videotut hr {
+    position: relative;
+    height: 4px;
+    width: 30px;
+    background: var(--color);
+    float: left;
+    top: 10px;
+}
+.videocont {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    display: none;
+    text-align: center;
+}
+.videocont iframe {
+    position: absolute;
+    box-shadow: var(--wideshadow);
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;
+    outline: none;
+    transform: scale(0.9);
+    transition: all 0.3s;
+} 
+.vidclose {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 40px;
+    background: #fff;
+    box-shadow: var(--wideshadow);
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.vidclose:hover {
+    background: var(--color);
+}
+.vidclose:hover .close {
+    color: #fff;
+}
+.vidclose .close {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 3px;
+    bottom: 0;
+    top: 3px;
+}
+
+[data-active] div {
+    position: relative;
+    top: 1px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #dde7f0;
+}
+[data-active="1"] div {
+    background: var(--color);
+}
+.updatesline {
+    position: relative;
+    float: left;
+    margin-right: 30px;
+    width: 3px;
+    height: 280px;
+    background: #dde7f0;
+    border-radius: 30px;
+}
+.updatesline div {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: 4px solid var(--color);
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 80px;
+    left: -6px;
+    background: #fff;
+}
+.update {
+    position: relative;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 30px;
+} 
+.update h5 {
+    color: #555;
+    font-size: 14px;
+    margin: 10px auto;
+    margin-bottom: 7px;
+}
+.update h6 {
+    font-size: 12px;
+    color: #777;
+    margin: auto;
+    float: none;
+}
+.update small {
+    color: #aaa;
+    font-size: 11px;
+}
+.update small i {
+    margin-right: 7px;
+}
+
+.createapp .dashbox {
+    text-align: center;
+    min-height: 300px;
+    cursor: pointer;
+    transition: all 0.3s;
+} 
+.createapp .dashbox:hover {
+    background: var(--color);
+}
+.createapp .dashbox:hover h3 {
+    color: #fff;
+    transition: all 0.3s;
+}
+.createapp .dashbox:hover li, .createapp .dashbox:hover i,.createapp .dashbox:hover small {
+    color: #fff;
+}
+.createapp .dashbox:hover img {
+    filter: grayscale(100%) brightness(500%);
+}
+.createapp .dashbox h3 {
+    font-size: 22px;
+    color: #555;
+    font-weight: 500;
+    margin-top: 10px;
+    float: left;
+}
+.createapp .dashbox img {
+    width: 50px;
+    filter: grayscale();
+    float: left;
+    margin-right: 30px;
+    transition: all 0.3s;
+}
+.createapp .dashbox .fa-plus {
+    clear: both;
+    display: block;
+    top: 20px;
+    transition: all 0.3s;
+    font-size: 40px;
+}
+.createapp .dashbox ul {
+    list-style-type: none;
+    text-align: left;
+    margin-top: 40px;
+}
+.createapp .dashbox ul li {
+    font-size: 12px;
+    color: #333;
+    margin: 10px auto;
+    transition: all 0.3s;
+}
+.createapp .dashbox ul li i {
+    margin-right: 10px;
+    font-size: 17px;
+    transition: all 0s;
+}
+.createapp .dashbox small {
+    transition: all 0.3s;
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 500;
+}
+
+
+.apptitles {
+    position: relative;
+    float: left;
+    height: 100px;
+    background: #dde7f0;;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    margin-left: -30px;
+    box-shadow: var(--shadow);
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    min-width: 300px;
+}
+
+.apptitles h1 {
+    color: #333;
+    font-size: 25px;
+    font-weight: 500;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.apptitles h6 {
+    color: #777;
+    margin: auto;
+    font-size: 15px;
+}
+
+.indivprojmenu, .indivprotomenu {
+    position: absolute;
+    top: 30px;
+    left: 120px;
+    min-width: 210px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background: #fff;
+    padding: 10px;
+    z-index: 200;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+.indivprojmenu h6, .indivprotomenu h6 {
+    padding: 10px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+    margin: 0;
+    transition: all 0.2s;
+    border-radius: 5px;
+}  
+.indivprojmenu h6:hover, .indivprotomenu h6:hover {
+    background: var(--color);
+    color: #fff;
+}
+
+.indivprojmenu hr, .indivprotomenu hr {
+    position: relative;
+    height: 1px;
+    background: #ddd;
+    width: 100%;
+}
+.indivprojmenu i, .indivprotomenu i {
+    font-size: 16px;
+    margin-right: 10px;
+    transition: all 0s;
+}
+
+.prototemplate .protologo {
+    float: left;
+    width: 40px;
+    margin-right: 10px;
+}
+.addcomp {
+    padding: 15px 30px;
+    background: var(--color);
+    border-radius: 40px;
+    color: #fff;
+    font-size: 16px;
+    float: right;
+    top: 30px;
+    box-shadow: var(--colorshadow)
+}
+.addcomp:hover {
+    box-shadow: var(--shadowhover);
+}
+.addcomp i {
+    margin-right: 10px;
+}
+
+/*Comp Center*/
+
+.compcenter {
+    width: 70%;
+    height: 75%;
+    padding: 30px 50px;
+    overflow: hidden;
+}
+.closecomp {
+    top: 15px;
+    right: 15px;
+}
+.compcenter h3 {
+    float: left;
+    margin:  auto;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    color: #333;
+}
+.compcenter input {
+    border: 1.5px solid #ddd;
+    border-radius: 40px;
+    padding: 8px 20px;
+    float: right;
+    color: #555;
+}
+.compcenter input::placeholder {
+    color: #aaa;
+}
+.compcenter input:focus {
+    border: 1.5px solid var(--color);
+}
+.compcenterinner {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    height: 90%;
+    overflow-y: scroll;
+}
+.compcenter hr {
+    clear: both;
+    width: 100%;
+    height: 1px;
+    background: #eaeaea;
+}
+.compcenter h5 {
+    margin: 20px auto;
+    font-size: 14px;
+    font-weight: 6500;
+    color: #555;
+}
+.compcenter .comp {
+    position: relative;
+    margin: 10px;
+    margin-left: 5px;
+    width: 280px;
+    height: 180px;
+    display: inline-block;
+    box-shadow: var(--shadow);
+    transition: all 0.1s;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.compcenter .comp:hover {
+    border-bottom: 3px solid var(--color);
+    box-shadow: var(--wideshadow);
+}
+.compcenter .comp img {
+    position: relative;
+    width: 100%;
+    height: 60px; 
+}
+.compcenter .compinner {
+    position: relative;
+    width: 100%;
+    height: 250px;
+} 
+.compcenter .comp h6 {
+    font-size: 14px;
+    color: #555;
+    font-weight: 600;
+    padding: 5px 10px;
+    margin: 0;
+    margin-top: 5px;
+} 
+.compcenter .comp p {
+    font-size: 12px;
+    color: #777;
+    margin: auto;
+    padding: 0 10px;
+}
+.compcenter .comp small {
+    position: absolute;
+    color: var(--color);
+    font-weight: 500;
+    font-size: 13px;
+    padding: 5px 10px;
+    bottom: 10px;
+    transition: all 0.3s;
+}
+.compcenter .comp small i {
+    margin-left: 5px;
+    font-size: 18px;
+    top: 3px;
+    opacity: 0;
+}
+.compcenter .comp small:hover i {
+    margin-left: 12px;
+    opacity: 1;
+}
+.compfeatcont {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    display: none;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+.compfeat {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 65%;
+    height: 90%;
+    background: #fff;
+    transform: scale(0.9);
+    border-radius: 10px;
+    box-shadow: var(--wideshadow);
+    transition: all 0.2s;
+    overflow: hidden;
+}
+.compfeat img {
+    position: relative;
+    width: 100%;
+    height: 140px;
+}
+.compfeat .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+}
+.compfeatinner {
+    position: relative;
+    padding: 20px;
+    height: 65%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+.compactions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #fafafa;
+    box-shadow: var(--shadow);
+}
+.compactions .addtoproj {
+    padding: 10px 20px;
+    background: var(--color);
+    color: #fff;
+    float: right;
+    border-radius: 40px;
+    font-size: 13px;
+    box-shadow: var(--colorshadow);
+    cursor: pointer;
+}
+.compactions button:hover {
+    box-shadow: var(--shadowhover);
+}
+.compactions .compcancel {
+    float: left;
+    top: 3px;
+    padding: 10px;
+    cursor: pointer;
+}
+.compactions .compcancel:hover {
+    color: var(--color);
+}
+.compfeatinner h6 {
+    font-size: 16px;
+    color: #555;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.compfeatinner ul {
+    list-style-type: none;
+    padding: 0;
+} 
+.compfeatinner ul li {
+    font-weight: 500;
+    font-size: 13px;
+    margin: 10px auto;
+    color: #333;
+}
+.compfeatinner ul li i {
+    margin-right: 7px;
+    color: #555;
+    font-size: 11px;
+}
+.compleft {
+    position: relative;
+    float: left;
+    width: 69%;
+    padding-right: 30px;
+    box-sizing: border-box;
+    border-right: 1px solid #eee;
+}
+.compright {
+    float: right;
+    width: 28%;
+    height: 100%;
+}
+.compfeatdescript {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+}
+.compfeatinfo small {
+    display: block;
+    font-size: 12px;
+}
+
+.protobox {
+    position: absolute;
+    width: 320px;
+    height: 250px;
+    border-radius: 10px;
+    background: var(--dark);
+    box-shadow: var(--shadow);
+    opacity: 0.9;
+    margin: 10px;
+    box-sizing: border-box;
+    overflow: auto;
+    resize: both;
+    border: 1px solid #fafafa;
+}
+.protobox h6 {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    margin: auto;
+    padding-top: 5px;
+} 
+.protoboxhead {
+    position: relative;
+    height: 20px;
+    padding: 10px;
+    cursor: move;
+}
+.protoboard {
+    position: relative;
+    min-width: 100%;
+    min-height: 500vh;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+} 
+.protoboxbody {
+    position: relative;
+    color: #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 10px;
+} 
+.saveproto {
+    position: relative;
+    padding: 10px 15px;
+    background: var(--color);
+    color: #fff;
+    border-radius: 40px;
+    display: none;
+} 
+.saveproto i {
+    margin-right: 10px;
+}
+.viewteam i {
+    width: 15px;
+}
+.viewteamdiv {
+    position: absolute;
+    top: 165px;
+    left: 50px;
+    min-height: 100px;
+    max-height: 300px;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: #ffff;
+    z-index: 100;
+    overflow-y: scroll;
+    text-align: center;
+    display: none;
+}
+.viewteamdiv span {
+    padding: 15px 50px;
+    padding-left: 20px;
+}
+.viewteamdiv span, .availinner span {
+    display: block;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 10px;
+}
+.viewteamdiv span:hover {
+    background: #f5f5f5;
+}
+.viewteamdiv span i {
+    font-size: 15px;
+    color: var(--color);
+    margin-right: 10px;
+}
+.viewteamdiv img,.availinner img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 10px;
+    float: left;
+    top: -8px;
+}
+.viewteamdiv input {
+    position: relative;
+    border-radius: 10px;
+    height: 30px;
+    border: 1px solid #eee;
+    margin: 10px auto;
+    padding-left: 10px;
+    width: 70%;
+    margin-left: -10px;
+}
+
+.addmembersbtn {
+    float: left;
+    font-size: 14px;
+    color: var(--color);
+    top: 5px;
+    padding: 5px 10px;
+    transition: all 0.3s;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.addmembersbtn:hover {
+    background: var(--color);
+    color: #fff;
+}
+.addmembersbtn i {
+    margin-right: 10px;
+    transition: all 0s;
+}
+.addmemberscont {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 0;
+    left: 0;
+    width: 700px;
+    height: 440px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transform: scale(0.9);
+    transition: all 0.3s;
+    z-index: 999;
+    display: none;
+}
+.addmemberscont small {
+    display: block;
+    margin-top: 18px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: var(--color);
+    font-weight: 500;
+    cursor: pointer;
+    float: left;
+} 
+.addmemberscont small i {
+    margin-right: 10px;
+}
+
+ 
+.projinfobox {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+    padding: 20px 30px;
+    box-shadow: var(--wideshadow);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.96);
+    z-index: 999;
+    overflow-y: scroll;
+    display: none;
+    transform: scale(0.9);
+    transition: all 0.3s;
+}
+.projinfobox .close {
+    position: absolute;
+    right: 20px;
+}  
+.projinfobox h4 {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+.projinfobox h4 i {
+    margin-right: 10px;
+} 
+.projinfobox > div {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+} 
+.projinfobox > div h6 {
+    float: left;
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
+    width: 50%;
+}
+.projinfobox > div p {
+    padding: 5px 10px;
+    float: left;
+    background: #f1f1f1;
+    color: #555;
+    font-size: 13px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 5px;
+    width: 40%;
+}
+.projinfobox small {
+    display: block;
+    margin: 10px auto;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.7;
+}
+.projinfobox small::before {
+    content: "\2139";
+    font-size: 20px;
+    margin-right: 10px;
+}
+.tablehelphide {
+    display: none;
+}
+      
+.availmemberscont {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: none;
+}  
+.availmembers {
+    position: fixed;
+    top: -30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 400px;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: var(--wideshadow);
+    transition: all 0.2s;
+    z-index: 100;
+    border-radius: 10px;
+}
+.availmembers h4 {
+    font-size: 20px;
+    color: #555;
+    margin-top: 2px;
+    float: left;
+    margin-bottom: 30px;
+}
+.availinner span {
+    padding: 20px 10px;
+}
+.availinner span em {
+    font-style: normal;
+    font-size: 14px;
+}
+.availinner span small:hover {
+    filter: brightness(110%);
+}
+.availinner,.availdescript {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow-y: scroll;
+    padding: 15px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+.availdescript small {
+    text-align: center;
+    color: #ccc;
+    width: 300px;
+    display: block;
+    margin: auto;
+    padding: 30px 0;
+    transition: all 0.2s;
+}
+.availdescript small:nth-of-type(2) {
+    cursor: pointer;
+}
+.availmembers button {
+    position: absolute;
+    bottom: 20px;
+    padding: 8px 15px;
+    border-radius: 40px;
+    color: var(--color);
+    font-size: 15px;
+    background: none;
+}
+.availmembers button:nth-of-type(1) {
+    left: 30px;
+}
+.availmembers button:nth-of-type(2) {
+    right: 30px;
+}
+.availmembers .close {
+    right: 20px;
+}
+.addtotask, .removefromtask {
+    float: right;
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 10px;
+    top: -5px;
+    background: var(--color);
+    border-radius: 40px;
+}
+
+.slideproj {
+    position: absolute;
+    top: 90px;
+    right: -15px;
+    font-size: 22px;
+    border-radius: 100%;
+    background: #fff;
+    color: var(--color);
+    padding: 4px 9px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.tooltip {
+    position: absolute;
+    transform: translateY(-10px);
+    padding: 4px 8px;
+    background: rgba(0,0,0,0.85);
+    border-radius: 40px;
+    font-size: 11px;
+    color: #fff;
+    transition: all 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+ 
+.projtable tr:first-child td i { /*tablemenu */
+    color: var(--color);
+    position: absolute;
+    font-size: 18px;
+    transform: translate(0px, -30px);
+    z-index: 90;
+    opacity: 0;
+    cursor: pointer;
+    padding-left: 0;
+} 
+.projtable:hover .tablemenu {
+    opacity: 1;
+}
+  
+.tableoptions {
+    position: absolute;
+    top: 10px;
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 900;
+} 
+.tableoptions h6 {
+    font-size: 13px;
+    margin: auto;
+    color: #333;
+    padding: 5px 40px 5px 20px;
+    transition: all 0.2s;
+}
+.tableoptions h6:hover {
+    background: #f5f5f5;
+}
+.tablesearch {
+    position: relative;
+    margin-bottom: 30px;
+}
+.tablesearch input {
+    position: relative;
+    padding: 5px 10px;
+    transition: all 0.3s;
+    width: 140px;
+    height: 20px;
+    border: 1px solid var(--color);
+    border-radius: 40px;
+    background: none;
+    font-size: 14px;
+    color: #777;
+}
+.tablesearch input::placeholder {
+    color: var(--color);
+    opacity: 0.5;
+}
+
+
+/* Automations */
+.automatcont {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.automatbox {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--wideshadow);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: all 0.3s;
+    transform: scale(0.9);
+    padding: 30px;
+    box-sizing: border-box;
+}
+.automatbox .close {
+    right: 30px;
+}
+.automatbox > h4 {
+    float: left;
+    font-size: 22px;
+    color: #333;
+    margin: 15px auto;
+}
+.automatinner {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+}
+.automatinner h5 {
+    color: #777;
+}
+.automatinner > div {
+    position: relative;
+    margin: 20px;
+    display: inline-table;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background: #fff;
+    border-bottom: 3px solid var(--color);
+    width: 400px;
+    height: 120px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.1s;
+    cursor: default;
+    overflow: hidden;
+} 
+.automatinner > div:hover {
+    border-bottom: 6px solid var(--color);
+}
+.automatinner > div h6, .automatwindow h6 {
+    margin: auto;
+    color: #333;
+    font-weight: 500;
+}
+.automatwindow h6 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.automatinner > div h6 span, .automatwindow h6 span {
+    color: var(--color);
+    font-weight: 600;
+}
+.automatinner > div h6 i, .automatwindow h6 i {
+    color: var(--color);
+    margin-right: 10px;
+}
+.automatinner > div small {
+    position: absolute;
+    bottom: 7px;
+    color: #777;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 5px;
+}
+.automatinner > div small:hover {
+    color: var(--color);
+}
+.automatinner > div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.07;
+}
+.automatwindow {
+    position: fixed;
+    width: 700px;
+    height: 450px;
+    box-shadow: var(--wideshadow);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 10px;
+    background: #fff;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+.automatwindow > div {
+    position: relative;
+    width: 100%;
+    margin: 70px auto;
+    padding: 10px;
+    display: block;
+}
+.automatwindow label {
+    position: relative;
+    float: left;
+    top: -5px;
+    padding: 10px;
+    font-weight: 600;
+    color: #555;
+} 
+.automatwindow select, .automatwindow input {
+    float: right;
+    width: 200px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    color: #333;
+}
+.automatwindow input::placeholder {
+    color: #ddd;
+}
+.automatwindow select {
+    height: 30px;
+    padding: 5px 10px;
+}
+.automatwindow input {
+    height: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.automatwindow .choosetable {
+    position: relative;
+    top: -20px;
+    height: 90px;
+    padding: 0;
+}
+.automatwindow select option {
+    padding: 8px;
+    box-sizing: border-box;
+}
+.automatwindow .close {
+    z-index: 100;
+}
+.automatwindow button {
+    margin-top: 10px;
+    padding: 7px 10px;
+    background: var(--color);
+    color: #fff;
+} 
+.automatwindow button:hover {
+    filter: brightness(115%)
+}
+
+.tablecolor {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: var(--wideshadow);
+    width: 600px;
+    height: 300px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 30px;
+    box-sizing: border-box;
+    z-index: 999;
+    display: none;
+    transform: scale(0.9);
+    transition: all 0.3s;
+    overflow-y: scroll;
+} 
+.tablecolor .close {
+    position: absolute;
+    right: 30px;
+    z-index: 100;
+}
+.tablecolor h4 {
+    margin: 10px auto;
+    color: #555;
+    font-size: 20px;
+} 
+.tablecolor [data-color] {
+    position: relative;
+    float: left;
+    margin: 10px;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+@media (max-width:1300px) {
+    
+    .scrollableinner {
+        position: relative;
+        overflow-x: scroll;
+    }
+    .projtemplate table {
+        width: 1300px; 
+        overflow-x: scroll;
+    }
+    .projtemplate table::-webkit-scrollbar {
+        display: block;
+    }
+    
+}
+
+@media (max-width:1200px) {
+    .menu {
+        display: none;
+    }
+}
+
+ 
+
+
+
+
+
+

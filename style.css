@@ -1,0 +1,853 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: Montserrat, sans-serif;
+}
+body {
+    background: #fafafa;
+}  
+:root {
+    --txtcolor: #17aeff;
+    --sky: #33dfff;    
+    --dark: #002033;
+    --grad: linear-gradient(150deg, #2e37ff 0%, #33dfff 100%);
+    --color: #2e36ff;
+}   
+ 
+.grid {
+    position: relative;
+    margin: auto;
+    width: 1320px;
+}
+.xgrid { 
+    padding: 50px 0px;
+}
+.clear {
+    clear: both;
+}
+
+h1,h2,h3,h4,h5,h6,i,p,li,button,a,span,small,img,section {
+    position: relative;
+}
+i {
+    transition: all 0.3s;
+}
+img {
+    object-fit: cover;
+}
+button {
+    outline: none;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+section h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+section h6 {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+a {
+    text-decoration: none;
+}
+p {
+    line-height: 1.8;
+}
+input, textarea {
+    outline: none;
+}
+
+::selection {
+    background: var(--color);
+    color: white;
+}
+::-webkit-scrollbar {
+    width: 15px;
+} 
+::-webkit-scrollbar-track {
+  background: #eee; 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color);
+} 
+.spacer {
+    height: 50px;
+}
+.spacers {
+    height: 20px;
+}
+.spacerl {
+    height: 100px;
+}
+
+
+nav {
+   position: fixed;
+    width: 100%;
+    padding: 15px 0px;
+    box-sizing: border-box;
+    z-index: 990;
+    transition: all 0.4s;
+}
+nav img {
+    width: 70px;
+    float: left;
+    margin-right: 10px;
+    transition: all 0.4s;
+}
+.logo span {
+    top: 20px;
+    transition: all 0.3s;
+}
+nav h3 {
+    color: #555;
+    top: 17px;
+    font-size: 25px;
+    font-weight: 500;
+    float: left;
+    margin: auto;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.4s;
+}
+nav h3 span {
+    top: 20px;
+}
+.menu {
+    position: relative;
+    float: right;
+    top: 40px;
+    transition: all 0.4s;
+}  
+.menu a {
+    margin: auto 7px;
+    padding: 5px;
+    color: white;
+    transition: all 0.3s;
+    font-weight: 600;
+    display: inline-block;
+}
+.menu a hr {
+    position: relative;
+    border: none;
+    background: #fff;
+    height: 2px;
+    width: 0px;
+    transition: all 0.3s;
+    margin-left: 0px;
+}
+.menu a:hover hr {
+    width: 100%;
+}
+.navbtn {
+    margin: auto 2px!important;
+} 
+nav button {
+    top: -23px;
+    margin: auto;
+    padding: 10px 20px;
+    transition: all 0.3s;
+    font-size: 16px;
+    border-radius: 40px;
+    border: 2px solid #fff;
+    display: inline-block;
+} 
+.navbtn1 button {
+    background: #fff;
+}
+.navbtn1 button:hover {
+    background: #eaeaea;
+}
+.navbtn2 button {
+    border: 2px solid #fff;
+    background: none;
+    color: #fff;
+}
+.navbtn2 button:hover {
+    background: #fff;
+    color: #333;
+}
+nav button i {
+    margin-right: 10px;
+    transition: all 0s;
+}
+.mobbtn {
+    display: none;
+    position: relative;
+    top: 37px;
+    width: 40px;
+    float: right;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.bg {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url(images/bg.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+.mobmenu {
+    position: fixed;
+    width: 100%;
+    top: -75vh;
+    height: 75vh;
+    background: var(--color);
+    transition: all 0.4s;
+    z-index: 995;
+}
+.mobmenucont {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+.mobmenu p {
+    font-size: 24px;
+    display: block;
+    margin: 20px auto;
+}
+.mobmenu a {
+    color: #fff;
+}
+.mobmenu button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 30px;
+    margin-bottom: 30px;
+    border-radius: 40px;
+    font-size: 16px;
+    background: #fff;
+}
+.mobmenu button i {
+    margin-right: 10px;
+}
+.closemenu {
+    position: absolute;
+    right: 32px;
+    top: 55px;
+    width: 38px;
+    height: 25px;
+    padding: 5px;
+    padding-top: 10px;
+    cursor: pointer;
+    z-index: 100;
+} 
+.closemenu hr {
+    border: none;
+    background: #fff;
+    height: 2px;
+    width: 100%;
+}
+.closemenu hr:nth-of-type(1) {
+    transform: rotate(45deg);
+}
+.closemenu hr:nth-of-type(2) {
+    transform: rotate(-45deg);
+    margin-top: -10px;
+}
+
+.spaceview {
+    height: 100vh;
+}
+.spinner {
+    position: absolute;
+    top: 0px;
+    right: 100px;
+    width: 400px;
+    opacity: 0.1;
+    animation: spin 15s linear infinite;
+}
+@keyframes spin {
+    0%{transform: rotate(0deg);width: 400px}
+    50%{transform: rotate(180deg);width:500px}
+    100%{transform: rotate(360deg);width: 400px}
+}
+.blob {
+    position: absolute;
+    top: 200px;
+    left: -1800px;
+    width: 200vw;
+    height: 250vh;
+}
+ 
+.bgtitles {
+    position: absolute;
+    top: -50%;
+    transform: translateY(60%);
+    z-index: 100;
+}
+.bgtitles h1 {
+    font-size: 55px;
+    color: #333;
+    margin-bottom: 0px;
+}
+/*
+.bgtitles h1 span {
+    background: -webkit-linear-gradient(-90deg, #0099ff 0%, #33dfff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+*/
+.bgtitles h6 {
+    color: var(--txtcolor);
+    font-size: 18px;
+    margin: 20px auto;
+    margin-top: 10px;
+    font-weight: 500;
+}
+.bgtitles p {
+    font-size: 14px;
+    width: 500px;
+    color: #aaa;
+    font-weight: 400;
+    margin:20px 0px;
+}
+.bgtitles button {
+    background: var(--grad);
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 15px;
+}
+.bgtitles button i {
+    margin-left: 13px;
+    width: 10px;
+}
+.bgtitles button:hover {
+    filter: brightness(105%);
+}
+.bgtitles button:hover i {
+    margin-left: 23px;
+}
+
+.blob {
+    position: absolute;
+    opacity: 0.1;
+}
+
+.s1 {
+    background: #fff;
+    text-align: center;
+}
+.s1 h3 {
+    color: #555;
+}
+.s1 h6 {
+    color: var(--txtcolor);
+}
+.s1box {
+    position: relative;
+    width: 200px;
+    margin: 40px;
+    text-align: center;
+    display: inline-table;
+}
+.s1box img {
+    width: 100px;
+}
+.s1box h4 {
+    font-size: 22px;
+    color: #555;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.s1box p {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 400;
+} 
+
+.s2 {
+    background: linear-gradient(135deg, rgba(16,0,133,1) 0%, rgba(0,98,241,1) 100%);
+    text-align: center;
+}
+.s2 h3 {
+    color: #f1f1f1;
+}
+.s2 h6 {
+    color: #ddd;
+}
+.s2box {
+    position: relative;
+    display: inline-block;
+    margin: 40px;
+}
+.s2box h1 {
+    font-size: 70px;
+    font-weight: 900;
+    color: #fff;
+    font-style: normal;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.s2box h4 {
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.s2box i {
+    font-size: 30px;
+    color: #fff;
+    opacity: 0.2;
+}
+.brands {
+    position: relative;
+    top: -130px;
+    width: 100%;
+    height: 250px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 18px rgba(0,0,0,0.1); 
+    padding: 30px;
+    box-sizing: border-box;
+    margin-bottom: -150px;
+}
+.brands img {
+    top: 30px;
+    width: 140px;
+    margin: 30px;
+    border: none;
+    outline: none;
+}
+.slick-track {
+    cursor: move;
+}  
+
+.s3 {
+    text-align: center;
+}
+
+.s3 h3 {
+    color: #555;
+}
+.s3 h6 {
+    color: var(--txtcolor);
+    margin-bottom: 100px;
+}
+.s3 svg {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+.startimg {
+    position: absolute;
+    top: 80px;
+    left: 70px;
+    width: 60px;
+    height: 60px;
+}
+.s3left {
+    position: relative;
+    float: left;
+    width: 48%;
+    overflow: hidden;
+    text-align: left;
+} 
+.s3right {
+    position: relative;
+    float: right;
+    width: 48%;
+    overflow: hidden;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.s3left h4 {
+    font-size: 24px;
+    color: var(--color);
+    text-align: left;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.s3left p {
+    color: #555;
+    margin: auto;
+    margin-bottom: 40px;
+}
+.s3left button {
+    background: var(--color);
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 16px;
+}
+.s3left button:hover {
+    filter: brightness(115%);
+}
+.s3left button:hover i {
+    margin-left: 20px;
+}
+.s3left button i {
+    margin-left: 10px;
+}
+.projectimg {
+    width: 100%;
+    height: 100%;
+}
+
+footer {
+    background-image: url(images/footbg.png);
+    background-position: top;
+    background-size: cover;
+    text-align: center;
+    margin-top: -100px;
+}
+
+footer h6 {
+    font-size: 20px;
+    color: #fff;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+footer .col {
+    position: relative;
+    width: 20%;
+    display: inline-table;
+    margin: 20px;
+    text-align: left;
+}
+footer .col a:hover {
+    text-decoration: underline;
+}
+footer p {
+    color: #f1f1f1;
+    font-size: 13px;
+    line-height: 2;
+    margin: 10px auto;
+}
+footer p a {
+    font-size: 13px;
+    color: #f1f1f1;
+}
+footer p i {
+    margin-right: 10px;
+    font-size: 16px;
+}
+.socials i {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+ 
+/*Login CSS */
+.loginleft {
+    position: relative;
+    width: 54vw;
+    height: 100vh;
+    float: left;
+    background-image: url(images/loginbg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.loginright {
+    position: relative;
+    float: right;
+    width: 44vw;
+    height: 100vh;
+    
+}
+.logincover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(150deg, rgba(16,0,133,1) 0%, rgba(0,98,241,1) 100%);
+    filter: grayscale(80%);
+    opacity: 0.7;
+}
+.logincont {
+    position: absolute;
+    text-align: left;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 50px 100px;
+    box-sizing: border-box;
+}
+.logincont h1 {
+    font-size: 65px;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 20px;
+} 
+.logincont h6 {
+    color: #d1d1d1;
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+.logincont button {
+    padding: 10px 20px;
+    border-radius: 40px;
+    margin: 20px;
+    margin-left: 0;
+    color: #fff;
+}
+.logincont button:hover i {
+    margin-right: 20px;
+}
+.logincont button i {
+    margin-right: 10px;
+}
+.fblogin {
+    background: #415dae;
+}
+.glogin {
+  background: #DB4437;  
+}
+.logincont p {
+    color: #eee;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.loginright img {
+    width: 60px;
+    top: 20px;
+    margin-right: 10px;
+} 
+.loginrightcont {
+    position: absolute;
+    text-align: left;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 50px 100px;
+    box-sizing: border-box;
+}
+.loginright h3 {
+    font-size: 24px;
+    margin: auto;
+    color: #555;
+    margin-bottom: 70px;
+}
+.loginright h4 {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+.loginright h6 {
+    margin-top: 20px;
+    font-weight: 500;
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.loginright h6 a {
+    margin-top: 0px;
+    color: var(--color);
+    font-weight: 600;
+}
+.loginright a:hover {
+    text-decoration: underline;
+}
+.loginright input {
+    box-sizing: border-box;
+    padding: 13px 10px;
+    padding-left: 15px;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+    width: 300px;
+    color: #555;
+}
+.loginright input::placeholder {
+    color: #ddd;
+}
+.loginright i {
+    color: #555;
+    margin-left: 10px;
+    font-size: 17px;
+}
+.loginright small {
+    position: relative;
+    float: left;
+    font-size: 12px;
+    margin-top: 50px;
+}
+.loginright button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background: var(--color);
+    border-radius: 40px;
+    color: #fff;
+    float: left;
+    font-size: 16px;
+    margin-right: 30px;
+}
+.loginright button:hover {
+    filter: brightness(120%);
+}
+.loginright button i {
+    margin-left: 10px;
+    color: #fff;
+}
+.loginright button:hover i {
+    margin-left: 15px;
+}
+.loginright h3 a:hover {
+    text-decoration: none;
+}
+.loginright h3 a {
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1350px) {
+    .grid {
+        width: 95%;
+    }
+}
+@media (max-width: 1320px) {
+    .menu a {
+        color: #d1d1d1;
+    }
+    .menu a hr {
+        background: #d1d1d1;
+    }
+    
+}
+
+@media (max-width: 1200px) {
+    
+    .inpdiv i {
+        display: block;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .logo span {
+        top: 12px;
+        transition: all 0.3s;
+    }
+    .menu {
+        display: none;
+    }
+    .mobbtn {
+        display: block;
+    }
+    .mobbtn hr {
+        border: none;
+        height: 2px;
+        background: #fff;
+        margin-left: 0;
+    }
+    .mobbtn hr:nth-of-type(1) { 
+        width: 100%;
+    }
+    .mobbtn hr:nth-of-type(2) { 
+        width: 80%;
+    }
+    .spinner {
+        opacity: 0.04;
+    }
+    .bgtitles {
+        text-align: center;
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+    .bgtitles p {
+        margin: 20px auto;
+        font-size: 17px;
+    }
+    .mobbtn {
+        display: block;
+    }
+    .loginright, .loginleft {
+        width: 100%;
+    }
+    .inpdiv i {
+        display: inline-block;
+    }
+    
+    
+}
+@media (max-width: 920px) {
+    footer .col {
+        width: 45%;
+        margin: 40px 0;
+    }
+    .lastcol {
+        margin-bottom: 0!important;
+    }
+    
+}
+@media (max-width: 650px) {
+    
+    .bg {
+        height: 120vh;
+    }
+    .bg p {
+        width: 90%;
+    }
+    .s3left, .s3right {
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    .s3left img {
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+    .s3left h4,.s3left h6 {
+        text-align: center;
+    }
+    footer .col {
+        top: 50px;
+    }
+    .logincont, .loginrightcont {
+        padding: 20px;
+        text-align: center;
+    }
+    .loginright form {
+        text-align: left;
+    }
+    .inpdiv input {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width:400px) {
+    .loginleft h1 {
+        font-size: 50px;
+    }
+}
+
+
+
+
+
+
+
+
+
+

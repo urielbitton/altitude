@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head> 
+	<meta charset="utf-8"> 
+	<title>App - Altitude</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="images/logo.png"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+    <script src="app_storage.js"></script>
+    <script src="members.js"></script>
+    <script src="automations.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      
+</head>           
+                  
+<body>                          
+           
+    <nav class="sidebar"> 
+        <img class="logo" src="images/logo.png"/>    
+        <i class="far fa-bell"><small>Notifications</small></i>
+        <i class="fas fa-inbox inbox"><small>Inbox</small></i>
+        <hr> 
+        <button class="newprojbtn"><i class="fas fa-plus"></i>Project</button>
+        <i class="fas fa-mug-hot"><small>Projects</small></i>
+        <i class="fas fa-search"><small>Search</small></i>
+        <i class="far fa-question-circle"><small>Help</small></i> 
+        <hr>
+        <i class="fas fa-user-alt"><small>Profile</small></i>
+        <i class="fas fa-cog"><small>Settings</small></i>
+        <i class="fas fa-external-link-alt exit"><small>Exit App</small></i>
+        <i class="fas fa-eraser clearmem"><small>Delete Account</small></i>
+    </nav>
+        
+    <section class="projectsnavcont">
+    <div class="projectsnav">
+        <h4>Projects <i class="fas fa-ellipsis-h"></i></h4>
+        <div class="searchdiv"><i class="fas fa-search"></i><input type="search" placeholder="Find..."><hr></div>
+
+        <div class="projects"> 
+           
+        </div> 
+        <h4>Prototypes <i class="fas fa-ellipsis-h"></i></h4>
+        <div class="searchdiv"><i class="fas fa-search"></i><input type="search" placeholder="Find..."><hr></div>
+ 
+        <div class="prototypes">
+                
+        </div>      
+              
+        <i class="fas fa-angle-left slideproj"></i>
+    </div>       
+    </section>           
+          
+     
+    <nav class="toolbar">      
+        <div class="menu"> 
+            <h4 class="dashbtn activemenu">Dashboard<hr></h4>
+            <h4 class="createbtn">Create New<hr></h4>
+            <h4 class="myprojbtn">Projects<hr></h4>
+            <h4 class="protobtn">Prototypes<hr></h4>
+            <h4 class="teambtn">Team<hr></h4>
+        </div>
+        <div class="profilediv"><img class="profpicfill" src="images/prof.png"><span class="namefill">Uriel Bitton<i class="fas fa-angle-down"></i></span></div>
+        <div class="profdropdown">
+            <div class="profpicdiv"><label class="profpicuploader"><input type='file' id='profilepic'><img class="profpicfill" src="images/prof.png"><i class="fas fa-camera"></i></label></div>
+            <h4 class="namefill">Uriel Bitton</h4>
+            
+            <h5>Team <span class="teamfill">Altitude</span></h5>
+            <h5>Team ID <span class="idfill">01128</span></h5>
+            <h5>Projects <span class="projnumfill"></span></h5>
+            <h5>Prototypes <span class="protonumfill">0</span></h5>
+            <h5>Account Storage <span class="memsize">0</span></h5>
+            <hr>
+            <small>Edit Profile</small> 
+        </div> 
+    </nav> 
+     
+    <section class="home">    
+         
+    <div class="apps homeapp app">  
+         
+    </div>   
+        
+    <div class="dashboard app">
+        <div class="welcomebox">
+            <img src="images/dashimg.png"/>
+            <h3>Welcome back, <span class="fnamefill">Uriel!</span></h3>
+            <h6 class="dashdate"><i class="fas fa-calendar-alt"></i><span></span></h6>
+            <p>You have <span class="projnumfill"></span> active projects, <span class="protonumfill"></span> active prototype, 0 new team members</p><br> 
+            <div class="dashdiv"><i class="far fa-bell"></i><small>0 New</small></div>
+            <div class="dashdiv"><i class="fas fa-inbox inbox"></i><small>0 New</small></div>
+        </div>    
+        <div class="spacers"></div>
+        
+        <div class="dashbox dashboxsmall">
+            <h1 class="projnumfill"></h1>
+            <h5>Projects</h5>
+            <img src="images/projicon.png"/>
+        </div>
+        <div class="dashbox dashboxsmall">
+            <h1 class="protonumfill"></h1>
+            <h5>Prototypes</h5>
+            <img src="images/protoicon.png"/>
+        </div> 
+        <div class="dashbox dashboxsmall"> 
+            <h1>0</h1>
+            <h5>Team Members</h5>
+            <img src="images/teamicon.png"/> 
+        </div> 
+        <div class="dashbox dashboxsmall">
+            <h1>0</h1>
+            <h5>Projects Completed</h5>
+            <img src="images/completeicon.png"/> 
+        </div> 
+        
+        <div class="clear"></div>  
+        
+        <div class="dashsave">
+        <div class="dashbox recentproj"> 
+            <h4>Recent Projects</h4>
+            <h6>More<i class="fas fa-long-arrow-alt-right"></i></h6>
+            <div class="clear"></div>
+            <table>
+                <tr>
+                    <th>Project</th>
+                    <th>Type</th>
+                    <th>Progress</th>
+                    <th>%</th>
+                </tr>
+            </table>
+        </div> 
+         
+        <div class="dashbox dashboxlarge teamdash"> 
+            <h4>Recent Members</h4>
+            <h6>Manage<i class="fas fa-angle-down"></i></h6>
+            <div class="clear"></div>
+            <table>
+                <tr>
+                    <th>Member</th>
+                    <th>Project</th>
+                    <th>Tasks On</th>
+                    <th>Active</th>
+                </tr>
+            </table>   
+        </div>   
+        <div class="dashbox"> 
+            <h4>Updates</h4>
+            <h6>More<i class="fas fa-long-arrow-alt-right"></i></h6>
+            <div class="clear"></div>
+            <div class="updatesline"><div></div><div></div><div></div></div>
+            
+            <div class="update"><h5>Task Completed</h5><h6>Jake completed task: design UI</h6><small><i class="far fa-clock"></i>5 min ago</small></div>
+            <div class="update"><h5>Project Completed</h5><h6>Quadflow has been marked done by team</h6><small><i class="far fa-clock"></i>1 hour ago</small></div>
+            <div class="update"><h5>New member</h5><h6>Octacore has been assigned a new member</h6><small><i class="far fa-clock"></i>2 hour ago</small></div>
+        </div> 
+        </div>    
+            
+        <div class="dashbox"></div>
+        <div class="dashbox"></div> 
+         
+        <div class="videotut">
+            <div class="vid1"><i class="fas fa-info"></i><i class="fas fa-play"></i></div><hr>
+            <div class="vid2"><i class="fas fa-info"></i><i class="fas fa-play"></i></div><hr>
+            <div class="vid3"><i class="fas fa-info"></i><i class="fas fa-play"></i></div> 
+        </div>
+           
+    </div>     
+       
+    <div class="newboxcont addprojbox">         
+    <div class="newbox">  
+        <i class="close closebox"></i> 
+        <h2>New Project</h2>
+        <div class="clear"></div>  
+        <input class="projnameinp" type="text" placeholder="Project Name">
+        <small class="info">You can edit project details later.</small>
+        <label class="projcolorcont" for="projcolor"><input class="projcolor" id="projcolor" type="color" value="#5526ff"></label><br><label>Project Color</label>
+        <small class="cancel closebox">Cancel</small><button class="createprojbtn">Create Project</button>           
+    </div>  
+    <div class="newboxclose"></div>    
+    </div>
+        
+    <div class="newboxcont addprotobox">      
+    <div class="newbox">  
+        <i class="close closebox"></i>
+        <h2>New Prototype</h2>
+        <div class="clear"></div> 
+        <input class="protonameinp" type="text" placeholder="Prototype Name">
+        <small class="info">You can edit prototype details later.</small>
+        <small class="cancel closebox">Cancel</small><button class="createprotobtn">Create Prototype</button>           
+    </div>  
+    <div class="newboxclose"></div>    
+    </div> 
+         
+    <div class="newboxcont addteambox">      
+    <div class="newbox">  
+        <i class="close closebox"></i>
+        <h2>New Team</h2>
+        <div class="clear"></div> 
+        <input class="teamnameinp" type="text" placeholder="Team Name">
+        <span>Add to project</span>
+        <select> 
+        </select>
+        <div class="clear"></div>
+        <span class="addmembersbtn"><i class="fas fa-plus"></i>Add Members</span>
+        <small class="cancel closebox">Cancel</small><button class="createteambtn">Create Team</button>           
+    </div>  
+    <div class="newboxclose"></div>    
+    </div>     
+         
+         
+        
+    <div class="newproto appbox app">
+        <div class="appboxtitles">
+            <h1>Add a Prototype</h1>
+            <h6>Create a new prototye.</h6>
+        </div> 
+        <div class="clear"></div>
+        <div class="newbox">
+            <h2>New Prototype</h2>
+            <div class="clear"></div> 
+            <div class="innerbox">
+                <div class="innerleft">
+                    <label>Project Name</label><input class="projnameinp" type="text" placeholder="Altitude">
+                    <label>Project Logo</label><input class="projnameinp" type="text" placeholder="Altitude">
+                <label>Category</label>
+                <select name="selectoptions" class="projcateginp">
+                    <option value="gen">General</option>
+                    <option value="tech">Technology</option>
+                    <option value="finance">Finance</option>
+                    <option value="tech">Art</option>
+                    <option value="web">Web</option>
+                    <option value="tech">App</option>
+                </select>
+                <label>Project Color</label><input class="projcolor" type="color" value="#5526ff">
+                <label>Notify Team Members</label><input type="checkbox" name="checkbox">
+                </div>
+                  
+            </div> 
+            <button class="createbtn"><i class="fas fa-plus"></i> Create  Project</button>    
+        </div>       
+        
+    </div>      
+                
+    <!--Project Template-->      
+    <div class="projtemplate app" id="projtemplate">     
+          
+    </div> 
+        
+    <!--Prototype Template-->      
+    <div class="prototemplate app" id="prototemplate">     
+           
+    </div>    
+         
+    <!-- My Projects-->    
+    <div class="myprojects appbox app">
+        <div class="apptitles">
+            <h1>Projects</h1> 
+            <h6>Manage your projects.</h6> 
+        </div>
+        <div class="myprojectscont"></div>  
+    </div>
+         
+    <!-- Prototypes-->    
+    <div class="myprototypes appbox app"> 
+        <div class="apptitles">
+            <h1>Prototypes</h1> 
+            <h6>Manage your Prototypes.</h6>
+        </div>     
+        
+        <div class="protocont"></div> 
+    </div>  
+         
+    <!-- Teams-->    
+    <div class="team appbox app">
+        <div class="apptitles">
+            <h1>Team</h1>
+            <h6>Manage your team members.</h6>
+        </div>    
+        <div class="teamcont"></div> 
+    </div>      
+            
+        
+    <!-- Create App -->
+    <div class="createapp appbox app">
+        <div class="apptitles">
+            <h1>Create</h1>
+            <h6>Create new project management tools.</h6>
+        </div>    
+        
+        <div class="dashbox newprojbtn">
+            <img src="images/projicon.png"/>
+            <h3>New Project</h3>
+            <i class="fas fa-plus"></i>
+            <ul>
+                <small>Features</small>
+                <li>Manage project logistics</li> 
+                <li>Assign team members</li>
+                <li>Design project visuals</li>
+                <li>Track progress in real time</li>
+            </ul>
+        </div>
+        <div class="dashbox newprotobtn">
+            <img src="images/protoicon.png"/>
+            <h3>New Prototype</h3>
+            <i class="fas fa-plus"></i>
+            <ul> 
+                <small>Features</small>
+                <li>Add concept tags</li>
+                <li>Design project ideas</li>
+                <li>Link prototypes to projects</li>
+                <li>Smart AI suggestions</li>
+            </ul>
+        </div>
+        <div class="dashbox newteambtn"> 
+            <img src="images/teamicon.png"/>
+            <h3>New Team</h3>
+            <i class="fas fa-plus"></i>
+            <ul>
+                <small>Features</small>
+                <li>Add team members to projects</li>
+                <li>Assign memebers tasks</li>
+                <li>Manage team permissions</li>
+                <li>Track team progress</li>
+            </ul>
+        </div> 
+           
+    </div>          
+         
+    </section> <!--Home section-->  
+    
+    <!-- Components Center -->
+    <div class="compcentercont"> 
+        <div class="compcenter">
+            <i class="close closecomp"></i>
+            <h3>Templates Center</h3>
+            <input type="text" placeholder="Search...">
+            <hr>
+            <div class="compcenterinner">
+                <h5>Business</h5>
+                <hr>
+                <div class="comp" data-tempid="1">
+                    <img src="images/compcenter/ab1.jpg"/>
+                    <h6>Accounting</h6>
+                    <p>Start with an accounting template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="2">
+                    <img src="images/compcenter/ab2.jpg"/>
+                    <h6>Finance</h6>
+                    <p>Start with a finance template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="3">
+                    <img src="images/compcenter/ab3.jpg"/> 
+                    <h6>Economics</h6>
+                    <p>Start with an economics template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="4">
+                    <img src="images/compcenter/ab4.jpg"/> 
+                    <h6>Business & Management</h6>
+                    <p>Start with a business & management template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="28">
+                    <img src="images/compcenter/ab28.jpg"/> 
+                    <h6>Marketing</h6>
+                    <p>Start with a marketing template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="5">
+                    <img src="images/compcenter/ab5.jpg"/> 
+                    <h6>General Business</h6>
+                    <p>Start with a general business template</p>
+                    <small>Add to Project</small>
+                </div>
+            
+                <h5>Technology</h5>
+                <hr>
+                <div class="comp" data-tempid="6">
+                    <img src="images/compcenter/ab6.jpg"/>
+                    <h6>Computer Science</h6>
+                    <p>Start with a computer science template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="7">
+                    <img src="images/compcenter/ab7.jpg"/>
+                    <h6>Mechanical Engineering</h6>
+                    <p>Start with a mechanical engineering template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="8">
+                    <img src="images/compcenter/ab8.jpg"/>
+                    <h6>Electrical Engineering</h6>
+                    <p>Start with an electrical engineering template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="9">
+                    <img src="images/compcenter/ab9.jpg"/>
+                    <h6>Chemical Engineering</h6>
+                    <p>Start with a chemical engineering template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="10">
+                    <img src="images/compcenter/ab10.jpg"/>
+                    <h6>Civil & Structural Engineering</h6>
+                    <p>Start with a civil & structural eng. template</p>
+                    <small>Add to Project</small>
+                </div>
+                <h5>Arts & Culture</h5>
+                <hr>
+                <div class="comp" data-tempid="11">
+                    <img src="images/compcenter/ab11.jpg"/>
+                    <h6>Archaeology</h6>
+                    <p>Start with an archaeology application</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="12">
+                    <img src="images/compcenter/ab12.jpg"/>
+                    <h6>Architecture </h6>
+                    <p>Start with an architecture template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="13"> 
+                    <img src="images/compcenter/ab13.jpg"/>
+                    <h6>Arts & Design</h6>
+                    <p>Start with a arts & design template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="14">
+                    <img src="images/compcenter/ab14.jpg"/> 
+                    <h6>Literature</h6>
+                    <p>Start with a literature template</p>
+                    <small>Add to Project</small> 
+                </div>
+                <div class="comp" data-tempid="15">
+                    <img src="images/compcenter/ab15.jpg"/>
+                    <h6>History</h6> 
+                    <p>Start with a history template</p>
+                    <small>Add to Project</small>
+                </div> 
+                <div class="comp" data-tempid="16">
+                    <img src="images/compcenter/ab16.jpg"/>
+                    <h6>Philosophy</h6>
+                    <p>Start with a philosophy template</p> 
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="17">
+                    <img src="images/compcenter/ab17.jpg"/>
+                    <h6>Theology</h6>
+                    <p>Start with a theology template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="29">
+                    <img src="images/compcenter/ab29.jpg"/>
+                    <h6>Music & Film</h6>
+                    <p>Start with a music & film template</p>
+                    <small>Add to Project</small>
+                </div>
+                <h5>Law</h5>
+                <hr>   
+                <div class="comp" data-tempid="18">
+                    <img src="images/compcenter/ab18.jpg"/>
+                    <h6>Law</h6>
+                    <p>Start with a law template</p>
+                    <small>Add to Project</small>
+                </div>
+                <h5>Sciences</h5>
+                <hr>
+                <div class="comp" data-tempid="19">
+                    <img src="images/compcenter/ab19.jpg"/>
+                    <h6>Health Science</h6>
+                    <p>Start with a health science template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="20">
+                    <img src="images/compcenter/ab20.jpg"/>
+                    <h6>Biology</h6>
+                    <p>Start with a biology template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="21">
+                    <img src="images/compcenter/ab21.jpg"/>
+                    <h6>Political Science</h6>
+                    <p>Start with a political science template</p>
+                    <small>Add to Project</small>
+                </div>
+                <h5>Health</h5>
+                <hr>
+                <div class="comp" data-tempid="22">
+                    <img src="images/compcenter/ab22.jpg"/>
+                    <h6>Medicine</h6>
+                    <p>Start with a medicine template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="23">
+                    <img src="images/compcenter/ab23.jpg"/>
+                    <h6>Psychology</h6>
+                    <p>Start with a psychology template</p>
+                    <small>Add to Project</small>
+                </div>
+                <h5>Math</h5>
+                <hr>
+                <div class="comp" data-tempid="24">
+                    <img src="images/compcenter/ab24.jpg"/>
+                    <h6>General Math</h6>
+                    <p>Start with a general math template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="25">
+                    <img src="images/compcenter/ab25.jpg"/>
+                    <h6>Statistics</h6>
+                    <p>Start with a statistics template</p> 
+                    <small>Add to Project</small>
+                </div>
+                <h5>Misc</h5>
+                <hr> 
+                <div class="comp" data-tempid="26">
+                    <img src="images/compcenter/ab26.jpg"/>
+                    <h6>Project Management</h6>
+                    <p>Start with a project management template</p>
+                    <small>Add to Project</small>
+                </div>
+                <div class="comp" data-tempid="27">
+                    <img src="images/compcenter/ab27.jpg"/>
+                    <h6>Invoicing Template</h6>
+                    <p>Start with an invoicing template</p> 
+                    <small>Add to Project</small>
+                </div> 
+                     
+            </div>    
+                  
+            <div class="compfeatcont">
+            <div class="compfeat">
+                <img class="compfeatimg" src="images/compcenter/ab16.jpg"/>
+                <i class="close"></i>
+                <div class="compfeatinner">
+                    <div class="compleft">
+                        <h6 class="compfeattitle"></h6>  
+                    <div class="compfeatdescript">
+                        Use this template to enhance your project management and speed up productivity.
+                        <br><br>
+                        Some ways you can use this component:
+                        <ul>
+                            <li>Boost productivity amongst team</li>
+                            <li>Enhance efficiency of project</li>
+                            <li>Track overall progress in real-time</li>
+                        </ul> 
+                        
+                        <div class="spacers"></div>
+                        <h6>Template Info</h6>
+                        <div class="compfeatinfo">
+                            <small>Version: 1.12</small>
+                            <small>Date Created: June 2020</small>
+                            <small>Usability: 8</small>
+                        </div>
+                    </div>
+                        <div class="spacers"></div>
+                    </div>
+                    <div class="compright"> 
+                        <h6>Use Cases</h6>
+                        <ul>
+                            <li>Project management</li>
+                            <li>Progress tracking</li>
+                            <li>Budget planning</li>
+                            <li>Teamwork planing</li>
+                            <li>Financial analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="compactions">
+                    <small class="compcancel">Cancel</small>
+                    <div class="addprojbtnhere"></div> 
+                </div>
+            </div>  
+            </div>    
+            
+        </div>
+    </div>   
+       
+    <!--Loader-->
+    <div class="loader"><div class="lds-ripple"><div></div><div></div></div></div>
+    
+    <!-- video cont -->
+    <div class="videocont">
+        <div class="vidclose"><i class="close"></i></div>
+    </div>   
+          
+    <!-- Help menu items --> 
+    <div class="tablehelphide">
+        <h4><i class="fas fa-question"></i>Help</h4>
+        <small>Double click on a cell to edit in or hover over it and click on the edit icon.</small>
+        <small>After editing a cell, hit the enter key to save it (You can also click on the check icon alternatively)</small>
+        <small>Click on a the check icon to save the task.</small>
+        <small>To add an item to your project, click the "add item" button at the top right corner.</small>
+        <small>You can choose a custom template project, by clicking on the template button at the top right corner, or create a custom template by editing the table rows yourself.</small>
+        <small>To delete an item, click on the trash icon of the row you want to remove.</small> 
+        <small>You can add team members to your project by selecting the "team members" button udner the project title.</small>
+        <small>You can also add members to individual tasks as well by hvering over a task udner the "Team Member" column.</small>
+        <small>Automate your tasks and projects by creating custom automations by clicking on the "Create automation" button under the project title.</small>
+        <small>Swap item positions in table by selecting the "Reorder Items" button under the project title.</small>
+        <small>Edit project name and color by selecting the "edit project" button under the project title.</small>
+    </div> 
+     
+      
+    
+</body>
+</html>    
